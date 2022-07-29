@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+  vars:
+    users:
+    - name: marek.asd
+      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCYP965GxFg08XbFTvVkFVck2YbCjHenrpjF4fOrE2fG0uycYJuuQzvfP3+QbIoBWvyuVWtwPdF7562lk5gEHkBJm0A2hyphjO+ui4ORPbJtyyyzX7JPJETMm+6D6PZXQWjbl4OICUJ/76OgMqJnRfIjZaAW687OL5pJxj/dO1Kt61VX8lG4YsSMfOMc8h2O3RRDegEwaVEcgWeLF0SLyVLIxxYb/6J+QCrIxq9KdMBiwrEt9AmWybGiG0kRxRWWNeX1tUG/1ZOzMp7r51CIF2US+rlEO16pISW8d/+0/9LSYK8/Grb/zf2qvhc9azq2PvtuZ7fZLVRqaFTbQkZXpAzTITq9DEtW1C8snKsUC9CyAGXzuWEwniowcZg4T89C8SLdPZz2CY5eZ56/OCUgWcVvyTv6eSSVIu7PljHJxggQaIjEzRej/dhbVFVatl9USGWL1AU7aE079OxOxfGxZCar8WpCsJJebWEPY1W1iUo+7VNJJy85Ulh3qyJAAA7QGE= user@host"
+  tasks:
+    - name: "Include dante11235.user_provisioner"
+      include_role:
+        name: "dante11235.user_provisioner"

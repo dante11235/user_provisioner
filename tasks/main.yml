@@ -1,0 +1,19 @@
+---
+# tasks file for user_provisioner
+- name: Add users
+  user:
+    name: "{{ item.name }}"
+    state: present
+    password: "$1$*)^%$CeUUJM&v#0pQhHjAAjpqX1"
+    update_password: on_create
+    createhome: yes
+    shell: "/bin/bash"
+    groups: sudo
+  with_items: "{{ users }}"
+
+- name: Add SSH public keys
+  authorized_key:
+    user: "{{ item.name }}"
+    state: present
+    key: "{{ item.key }}"
+  with_items: "{{ users }}"
